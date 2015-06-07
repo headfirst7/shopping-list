@@ -54,6 +54,7 @@ app.post('/items', jsonParser, function(req, res) {
     return res.sendStatus(400);
   }
   var item = storage.add(req.body.name);
+  console.log(item);
   res.status(201).json(item);
 })
 
@@ -75,3 +76,6 @@ app.delete('/items/:id', function(req, res) {
   res.status(200).json(item);
 })
 app.listen(process.env.PORT || 8080);
+
+exports.app = app;
+exports.storage = storage;
